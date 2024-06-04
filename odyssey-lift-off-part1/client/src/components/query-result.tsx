@@ -14,7 +14,12 @@ interface QueryResultProps {
  * Query Results conditionally renders Apollo useQuery hooks states:
  * loading, error or its children when data is ready
  */
-const QueryResult: React.FC<PropsWithChildren<QueryResultProps>> = ({ loading, error, data, children }): React.ReactElement<any, any> | null => {
+const QueryResult: React.FC<PropsWithChildren<QueryResultProps>> = ({
+  loading,
+  error,
+  data,
+  children,
+}): React.ReactElement<any, any> | null => {
   if (error) {
     return <p>ERROR: {error.message}</p>;
   }
@@ -28,9 +33,7 @@ const QueryResult: React.FC<PropsWithChildren<QueryResultProps>> = ({ loading, e
   if (data) {
     return <>{children}</>;
   }
-
-    return <p>Nothing to show...</p>;
-  
+  return <p>Nothing to show...</p>;
 };
 
 export default QueryResult;
