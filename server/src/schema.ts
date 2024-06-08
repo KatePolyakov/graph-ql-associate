@@ -3,7 +3,8 @@ import gql from 'graphql-tag';
 export const typeDefs = gql`
   type Query {
     tracksForHome: [Track!]!
-    
+    "Fetch a specific track, provided a track's ID"
+    track(id: ID!): Track
   }
   type Track {
     id: ID!
