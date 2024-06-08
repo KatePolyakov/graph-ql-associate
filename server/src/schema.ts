@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 export const typeDefs = gql`
   type Query {
     tracksForHome: [Track!]!
+    
   }
   type Track {
     id: ID!
@@ -11,6 +12,15 @@ export const typeDefs = gql`
     thumbnail: String
     length: Int
     modulesCount: Int
+    description: String
+    numberOfViews: Int
+    modules: [Module!]!
+  }
+
+  type Module {
+    id: ID!
+    title: String!
+    length: Int
   }
 
   type Author {
